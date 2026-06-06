@@ -21,7 +21,6 @@
 ##############################################################################
 
 # Attempt to set APP_HOME
-# Resolve links: $0 may be a link
 app_path=$0
 
 while [ -h "$app_path" ]; do
@@ -108,17 +107,17 @@ if ! "$cygwin" && ! "$darwin" && ! "$nonstop" ; then
     esac
 fi
 
-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
-
-set -- \
-        "-Dorg.gradle.appname=$APP_BASE_NAME" \
-        -classpath \
-        "$CLASSPATH" \
-        org.gradle.wrapper.GradleWrapperMain \
-        "$@"
+# IMPORTANT: Use space-separated values WITHOUT embedded quotes.
+# Word splitting in the shell will separate them into individual arguments.
+# Embedded quotes (e.g. '"-Xmx64m"') cause Java to interpret them as the main class name.
+DEFAULT_JVM_OPTS="-Xmx64m -Xms64m"
 
 exec "$JAVACMD" \
     $DEFAULT_JVM_OPTS \
     $JAVA_OPTS \
     $GRADLE_OPTS \
+    "-Dorg.gradle.appname=$APP_BASE_NAME" \
+    -classpath \
+    "$CLASSPATH" \
+    org.gradle.wrapper.GradleWrapperMain \
     "$@"
