@@ -21,6 +21,15 @@ class SettingsActivity : AppCompatActivity() {
     companion object {
         const val PREFS_NAME = "DouyinSettings"
         const val COOKIE_KEY = "douyin_cookie"
+
+        fun getSavedCookie(context: Context): String {
+            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            return prefs.getString(COOKIE_KEY, "") ?: ""
+        }
+
+        fun hasSavedCookie(context: Context): Boolean {
+            return getSavedCookie(context).isNotEmpty()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -148,17 +157,4 @@ class SettingsActivity : AppCompatActivity() {
         return cookieString.split(";").map { it.trim() }
     }
 
-    /**
-     * Get saved Cookie (static method for other classes to use)
-     */
-    companion object {
-        fun getSavedCookie(context: Context): String {
-            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-            return prefs.getString(COOKIE_KEY, "") ?: ""
-        }
-
-        fun hasSavedCookie(context: Context): Boolean {
-            return getSavedCookie(context).isNotEmpty()
-        }
-    }
 }
