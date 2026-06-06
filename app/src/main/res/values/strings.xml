@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TV抖音精选</string>
+    <string name="loading">加载中...</string>
+    <string name="error_network">网络错误，请检查网络连接</string>
+    <string name="error_page">页面加载失败</string>
+    <string name="toast_next_video">下一个视频</string>
+    <string name="toast_previous_video">上一个视频</string>
+    <string name="toast_no_video">未找到视频</string>
+    <string name="toast_play_error">播放失败</string>
+    <string name="menu_title">菜单</string>
+    <string name="menu_refresh">刷新页面</string>
+    <string name="menu_home">返回首页</string>
+    <string name="menu_exit">退出应用</string>
+</resources>

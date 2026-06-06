@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center_horizontal"
+    android:background="#FF121212">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cookie 设置"
+        android:textSize="28sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="32dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请粘贴从浏览器复制的 Cookie 字符串："
+        android:textSize="16sp"
+        android:textColor="#B3FFFFFF"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/et_cookie"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Cookie 字符串（格式：key1=value1; key2=value2）"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B3FFFFFF"
+        android:background="#FF1E1E1E"
+        android:padding="16dp"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="保存 Cookie"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="#FF3700B3"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="测试 Cookie"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="#FF03DAC5"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="清除 Cookie"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="#FFF44336"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用说明：\n1. 在电脑浏览器中登录 douyin.com\n2. 使用 Cookie 编辑器插件导出 Cookie\n3. 选择 &quot;Header String&quot; 格式\n4. 复制并粘贴到上方输入框\n5. 点击 &quot;保存 Cookie&quot; 按钮"
+        android:textSize="14sp"
+        android:textColor="#B3FFFFFF"
+        android:lineSpacingMultiplier="1.5" />
+
+</LinearLayout>
