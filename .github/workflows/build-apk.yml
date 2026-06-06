@@ -32,25 +32,22 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Build Debug APK with Gradle
-      if: github.event.inputs.build_type == 'debug' || github.event_name == 'push' || github.event_name == 'pull_request'
+    - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v5
       with:
-        gradle-version: 8.2
-        arguments: :app:assembleDebug --stacktrace
         cache-overwrite-existing: true
 
-    - name: Build Release APK with Gradle
+    - name: Build Debug APK
+      if: github.event.inputs.build_type == 'debug' || github.event_name == 'push' || github.event_name == 'pull_request'
+      run: gradle :app:assembleDebug --stacktrace
+
+    - name: Build Release APK
       if: github.event.inputs.build_type == 'release'
       env:
         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         VERSION_CODE: ${{ github.run_number }}
-      uses: gradle/actions/setup-gradle@v5
-      with:
-        gradle-version: 8.2
-        arguments: :app:assembleRelease --stacktrace
-        cache-overwrite-existing: true
+      run: gradle :app:assembleRelease --stacktrace
 
     - name: Upload Debug APK
       if: github.event.inputs.build_type == 'debug' || github.event_name == 'push' || github.event_name == 'pull_request'
