@@ -1,15 +1,17 @@
 // 项目级 build.gradle
 buildscript {
-    ext.kotlin_version = '1.9.0'
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.2.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0'
     }
 }
+
+// ext 必须在 buildscript 外部定义，子项目才能引用
+ext.kotlin_version = '1.9.0'
 
 allprojects {
     repositories {
