@@ -1,0 +1,12 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Shell scripts: always LF
+*.sh text eol=lf
+
+# Batch files: always CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Gradle wrapper: binary
+gradle/wrapper/gradle-wrapper.jar binary
