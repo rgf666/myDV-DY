@@ -39,7 +39,7 @@ jobs:
 
     - name: Build Debug APK
       if: github.event.inputs.build_type == 'debug' || github.event_name == 'push' || github.event_name == 'pull_request'
-      run: gradle :app:assembleDebug --stacktrace
+      run: 'gradle :app:assembleDebug --stacktrace'
 
     - name: Build Release APK
       if: github.event.inputs.build_type == 'release'
@@ -47,7 +47,7 @@ jobs:
         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         VERSION_CODE: ${{ github.run_number }}
-      run: gradle :app:assembleRelease --stacktrace
+      run: 'gradle :app:assembleRelease --stacktrace'
 
     - name: Upload Debug APK
       if: github.event.inputs.build_type == 'debug' || github.event_name == 'push' || github.event_name == 'pull_request'
